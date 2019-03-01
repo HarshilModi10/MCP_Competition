@@ -32,5 +32,41 @@ class Solution(object):
         self.inOrderTraversal(root.left)
         self.inOrderTraversal(root.right)
         
+    #Faster solution 
+
+    # Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def flatten(self, root):
+        """
+        :type root: TreeNode
+        :rtype: None Do not return anything, modify root in-place instead.
+        """
+        if not root:
+            return None
+        stack = []
+        stack.append(root)
+        lastNode = TreeNode(-1)
+        
+        while stack:
+            node = stack.pop()
+            lastNode.right = node
+            lastNode.left = None
+            lastNode = lastNode.right
+            
+            if lastNode.right:
+                stack.append(lastNode.right)
+            if lastNode.left:
+                stack.append(lastNode.left)
+            
+        
+            
+            
+        
     
         
