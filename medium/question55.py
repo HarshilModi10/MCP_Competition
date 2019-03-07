@@ -5,6 +5,7 @@ class Solution(object):
         :rtype: bool
         """
         
+        #variable tracker
         maxJump = 0
         
         for i in range(len(nums)-1):
