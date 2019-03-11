@@ -4,6 +4,7 @@ class Solution:
         :type num: int
         :rtype: str
         """
+        
         roman = ''
         string1 = ["", "I", "II","III", "IV", "V", "VI", "VII", "VIII", "IX", "X" ]
         string2 = ["", "X", "XX","XXX", "XL", "L", "LX", "LXX", "LXXX", "XC", "C" ]
