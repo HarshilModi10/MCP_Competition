@@ -43,6 +43,35 @@ class Solution(object):
         res = []
         generate("", n,0)
         return res
+
+    # quicker solution
+
+class Solution(object):
+    def generateParenthesis(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        
+        res = []        
+        
+        def generate(seq, n,num_open):            
+            if n == 0 and num_open == 0:
+                res.append(seq)            
+            elif n == 0:
+                generate(seq+")", n, num_open - 1)
+            
+            elif num_open == 0:
+                generate(seq+"(", n-1, num_open + 1)
+            else:
+                generate(seq+")", n, num_open - 1)
+                generate(seq+"(", n -1, num_open + 1)
+        
+        if n:
+            generate("", n, 0)
+        
+        return res
+        
         
         
         
