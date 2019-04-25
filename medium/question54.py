@@ -28,4 +28,43 @@ class Solution(object):
                 move = (move+1)%4
         
         return res
+
+    # another version
+
+class Solution(object):
+    def spiralOrder(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+        
+        def is_valid_move():
+            if 0 <= (row + move[move_index][1]) < max_row and 0 <= (col + move[move_index][0]) <max_col:
+                if matrix[row + move[move_index][1]][col + move[move_index][0]] != "X":
+                    return True
+            return False
+        
+        if not matrix:
+            return []
+        
+        
+        res = [matrix[0][0]]
+        matrix[0][0] = "X"
+        move = [[1,0], [0, 1], [-1,0], [0,-1]]
+        max_row, max_col = len(matrix), len(matrix[0])
+        row,col,move_index = 0,0,0
+        
+        while len(res) != len(matrix[0]*len(matrix)):
+            if is_valid_move():
+                row = row + move[move_index][1]
+                col = col + move[move_index][0]
+                res.append(matrix[row][col])
+                matrix[row][col] = "X"
+            else:
+                move_index  = (move_index + 1)%4
+        
+        return res               
+        
+        
+        
         
