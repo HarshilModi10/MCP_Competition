@@ -18,24 +18,36 @@ class Solution(object):
         :type digits: str
         :rtype: List[str]
         """
-        map = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl',
-               '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
+        
+        res = []
+        number = {"2": ["a", "b", "c"], 
+                  "3": ["d", "e", "f"], 
+                  "4": ["g","h", "i"], 
+                  "5": ["j", "k", "l"], 
+                  "6": ["m", "n", "o"], 
+                  "7": ["p", "q", "r"], 
+                  "8": ["s", "t", "u"], 
+                  "9": ["v", "w", "x", "z"] }
 
-        def back_tracking(com, digit):
-            if not digit:
-                output.append(com)
-            else:
-                
-                for letter in map[digit[0]]:
-                    back_tracking(com+letter,digit[1:])
         
-        
-        
-        output = []
-        if digits:
-            back_tracking("", digits)
+        def get_combination(seq, digit):
             
-        return output
+            if not digit:
+                res.append(seq)
+            else:
+                for letter in number[digit[0]]:
+                    get_combination(seq+letter,digit[1:])
+        
+        
+        if digits:
+            get_combination("", digits)
+        return res
+                
+                
+        
+        
+            
+            
         
 
         
