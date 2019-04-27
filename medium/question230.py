@@ -64,8 +64,51 @@ class Solution(object):
                 return node.val
         
         return None
+
+#reccursive solution
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def kthSmallest(self, root, k):
+        """
+        :type root: TreeNode
+        :type k: int
+        :rtype: int
+        """
+        self.k = k
+        self.res = None
+        if not root:
+            return None
+        self.helper(root)
+        return self.res
+    
+    def helper(self,node):
+        
+        if not node:
+            return None
+        
+        self.helper(node.left)
+        
+        self.k -= 1
+        if self.k == 0:
+            self.res = node.val
+            return
+        
+        self.helper(node.right)
+
+            
+        
             
             
         
         
+            
+        
+
         
