@@ -31,10 +31,3 @@ class Solution(object):
                 return True
         self.stack.append(vertex)
         visited[vertex] = 1
-        
-        
-            
-        
-        
-            
-        
