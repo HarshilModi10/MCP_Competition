@@ -12,4 +12,3 @@ class Solution(object):
                 output.append(str[i])
         
         return "".join(output)
-        
