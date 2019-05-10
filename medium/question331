@@ -1,0 +1,17 @@
+class Solution(object):
+    def isValidSerialization(self, preorder):
+        """
+        :type preorder: str
+        :rtype: bool
+        """
+        slot = 1
+        array = preorder.split(",")
+        for char in array:
+            if slot == 0:
+                return False
+            elif char == '#':
+                slot -= 1
+            else:
+                slot += 1
+        
+        return slot == 0
