@@ -33,6 +33,28 @@ class Solution(object):
                 subsets.append(subsets[i] + [num])            
                 
         return subsets
+
+#Faster solution
+
+class Solution(object):
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if not nums:
+            return []
+        
+        res = []        
+        
+        for num in nums:
+            for i in range(len(res)):
+                res.append(res[i] + [num])
+            res.append([num])
+            
+        res.append([])
+        return res
+        
         
         
         
