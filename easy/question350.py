@@ -22,4 +22,35 @@ class Solution(object):
         return output
             
             
+# assume array is sorted
+
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        
+        nums1.sort()
+        nums2.sort()
+        index1 = 0
+        index2 = 0
+        output = []
+        
+        #while we are in a valid location
+        while  index1 < len(nums1) and index2 < len(nums2):
+            if nums1[index1] == nums2[index2]:
+                output.append(nums1[index1])
+                index1 += 1
+                index2 += 1
+            elif nums1[index1] > nums2[index2]:
+                index2 += 1
+            else:
+                index1 += 1
+        
+        return output
+            
+            
+            
         
