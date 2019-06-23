@@ -15,4 +15,23 @@ class Solution(object):
         
         return dp[n-1]
         
+
+#faster solution
+
+class Solution(object):
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n < 3:
+            return n
+        f1 = 1
+        f2 = 2
+        
+        for _ in range(2,n):
+            f2,f1 = f1+f2,f2
+        
+        return f2
+        
         
