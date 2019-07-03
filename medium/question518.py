@@ -14,4 +14,32 @@ class Solution(object):
                     
         return res[amount]
             
+
+#slower solution 
+
+class Solution(object):
+    def change(self, amount, coins):
+        """
+        :type amount: int
+        :type coins: List[int]
+        :rtype: int
+        """
+        if not amount:
+            return 1
+        if not coins:
+            return 0
+        
+        dp = [[0] * (amount+1) for _ in range(len(coins))] 
+    
+        for i in range(len(coins)):
+            dp[i][0] = 1
+        
+        for j in range(len(coins)):
+            for i in range(1,amount+1):
+                if coins[j] <= i:
+                    dp[j][i] += dp[j][i-coins[j]]
+                if j != 0:
+                    dp[j][i] += dp[j-1][i]
+        return dp[-1][-1]
+                
         
