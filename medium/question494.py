@@ -40,4 +40,27 @@ class Solution(object):
                 cache[(index, total)] = self.count_solutions(nums, S, index + 1, total + nums[index], cache) + self.count_solutions(nums, S, index +1, total - nums[index], cache)
                 return cache[(index, total)]
         
+#dynamic programming solution
+
+class Solution(object):
+    def findTargetSumWays(self, nums, S):
+        """
+        :type nums: List[int]
+        :type S: int
+        :rtype: int
+        """
+        cache = {0:1}
         
+        for num in nums:
+            new = collections.defaultdict(int)
+            for key, value in cache.items():
+                new[key+num] += value
+                new[key-num] += value
+            cache = new
+        
+        return cache[S]
+    
+        
+        
+        
+
