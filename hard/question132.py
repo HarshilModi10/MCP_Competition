@@ -32,3 +32,6 @@ class Solution(object):
             k-= 1
         
         return True
+
+#Faster solution 
+
