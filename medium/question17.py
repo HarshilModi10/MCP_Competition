@@ -43,6 +43,42 @@ class Solution(object):
             get_combination("", digits)
         return res
                 
+
+  class Solution(object):
+    def letterCombinations(self, digits):
+        """
+        :type digits: str
+        :rtype: List[str]
+        """
+        if not digits:
+            return []
+        key_pad = {2:['a','b','c'],
+                   3:['d','e','f'],
+                   4:['g','h','i'],
+                   5:['j','k','l'],
+                   6:['m','n','o'],
+                   7:['p','q','r', 's'],
+                   8:['t','u','v'],
+                   9:['w','x','y','z']
+                  }
+        res = []
+        
+        self.letter_combo(key_pad, res, digits, [])
+        return res
+    
+    def letter_combo(self, key_pad, res, digits, partial):
+        if not digits:
+            res.append("".join(partial))
+            return 
+        
+        for letter in key_pad[int(digits[0])]:
+            self.letter_combo(key_pad, res, digits[1:], partial + [letter])
+            
+            
+        
+        
+        
+        
                 
         
         
