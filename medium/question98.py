@@ -24,6 +24,7 @@ class Solution(object):
         return self.valid(root.left, low, root.val - 1) and self.valid(root.right, root.val+1, high)
 
 #Faster solution 
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -49,5 +50,5 @@ class Solution(object):
             return self.helper_function(root.left, min_val, root.val) and self.helper_function(root.right, root.val, max_val)
         
         return False
-        
+
     
