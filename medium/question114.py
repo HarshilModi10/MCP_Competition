@@ -67,6 +67,39 @@ class Solution(object):
         
             
             
+# another solution
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def flatten(self, root):
+        """
+        :type root: TreeNode
+        :rtype: None Do not return anything, modify root in-place instead.
+        """
+        order = []
+        self.get_pre_order(root, order)
         
+        dummyNode = current = TreeNode(0)
+        for node in order:
+            current.right = node
+            current.left = None
+            current = current.right
+        
+            
+    
+    
+    def get_pre_order(self, root, order):
+        if not root:
+            return
+        
+        order.append(root)
+        self.get_pre_order(root.left, order)
+        self.get_pre_order(root.right, order)
     
         
