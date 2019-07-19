@@ -20,4 +20,25 @@ class Solution(object):
         
         return digits
                 
+#faster solution 
+
+class Solution(object):
+    def plusOne(self, digits):
+        """
+        :type digits: List[int]
+        :rtype: List[int]
+        """
+        if not digits:
+            return []
+        carry = 1
+        
+        for i in range(len(digits)-1, -1,-1):
+            total = (digits[i] + carry)
+            digits[i] = total %10
+            carry = total /10
+        
+        if carry:
+            return [1] + digits
+        
+        return digits       
         
